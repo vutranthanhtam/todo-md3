@@ -40,11 +40,11 @@ export const useModel = {
             return err
         }
     },
-    delete: async (Id) => {
+    delete: async (id) => {
         try {
             return await new Promise((ok) => {
                 let queryStr = `
-                    DELETE FROM todolist WHERE id = ${Id}
+                    DELETE FROM todolist WHERE id = ${id}
                 `
                 mysqlDB.query(queryStr, (err, result) => {
                     if(err) ok({
@@ -59,7 +59,7 @@ export const useModel = {
             return err
         }
     },
-    update: async (Id, data) => {
+    update: async (id, data) => {
         try {
             return await new Promise((ok) => {
                 let updateDataStr = ``;
@@ -71,7 +71,7 @@ export const useModel = {
                 let queryStr = `
                 UPDATE user 
                 SET ${updateDataStr.slice(0, -1)}
-                WHERE id = ${Id}
+                WHERE id = ${id}
                 `
                 mysqlDB.query(queryStr, (err, result) => {
                     if(err) ok({

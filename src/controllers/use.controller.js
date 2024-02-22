@@ -1,4 +1,4 @@
-import { useModel } from "../models/use.model";
+import { useModel } from "../models/use.model.js";
 
 export const useController = {
     findMany: async (req, res) => {
@@ -34,7 +34,7 @@ export const useController = {
     delete: async (req, res) => {
         
         try {
-            let {err, data} = await useModel.delete(req.params.Id);
+            let {err, data} = await useModel.delete(req.params.id);
             if(err) throw err;
 
             return res.status(200).json({
@@ -50,7 +50,7 @@ export const useController = {
     update: async (req, res) => {
         
         try {
-            let {err, data} = await useModel.update(req.params.Id, req.body);
+            let {err, data} = await useModel.update(req.params.id, req.body);
             if(err) throw err;
 
             return res.status(200).json({
